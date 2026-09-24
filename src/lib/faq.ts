@@ -6,129 +6,130 @@ export type FaqItem = {
 export const faqByPage = {
   home: [
     {
-      question: "Qui est Alpha Renov France ?",
+      question:
+        "Alpha Renov France intervient-elle en intérieur et en extérieur ?",
       answer:
-        "Alpha Renov France est une entreprise générale du bâtiment basée à Plaisance-du-Touch (31). Nous réalisons des rénovations intérieures et des travaux tous corps d'état, avec une approche précise et qualitative.",
+        "Oui. Nous couvrons l'intérieur (rénovation, cuisine, salles de bain, espaces de vie) et l'extérieur (façades, terrasses, aménagements, enveloppe du bâtiment), en tant qu'entreprise générale du bâtiment tous corps d'état à Plaisance-du-Touch et autour de Toulouse.",
+    },
+    {
+      question: "Quels corps de métiers du bâtiment proposez-vous ?",
+      answer:
+        "Maçonnerie, couverture, rénovation intérieure et extérieure, second œuvre, construction de maisons individuelles et pilotage tous corps d'état. Un seul interlocuteur pour coordonner l'ensemble du chantier.",
     },
     {
       question: "Dans quelle zone intervenez-vous ?",
       answer:
-        "Nous intervenons principalement en Haute-Garonne et autour de Toulouse, depuis notre siège à Plaisance-du-Touch. Les projets hors zone sont étudiés au cas par cas.",
+        "Principalement en Haute-Garonne (31) : Plaisance-du-Touch, Toulouse et communes alentours. Les projets hors zone sont étudiés au cas par cas.",
     },
     {
-      question: "Quels types de travaux proposez-vous ?",
+      question: "Comment obtenir un devis pour des travaux de bâtiment ?",
       answer:
-        "Cuisine sur mesure, salles de bain, espaces de vie, rénovation globale et travaux de bâtiment tous corps d'état (maçonnerie, couverture, etc.).",
-    },
-    {
-      question: "Comment démarrer un projet avec vous ?",
-      answer:
-        "Vous pouvez prendre rendez-vous en ligne, nous écrire via le formulaire de contact, ou nous appeler. Nous organisons ensuite un diagnostic et un devis clair.",
+        "Prenez rendez-vous en ligne, utilisez le formulaire de contact ou appelez-nous. Après diagnostic, nous établissons un devis clair avec planning, matériaux et périmètre des travaux.",
     },
   ],
   approche: [
     {
-      question: "Comment se déroule un projet de rénovation ?",
+      question: "Comment se déroule un projet intérieur ou extérieur ?",
       answer:
-        "Notre méthode suit trois étapes : écoute et diagnostic, conception et devis, puis réalisation du chantier avec un suivi régulier jusqu'à la livraison.",
+        "Même méthode pour l'intérieur et l'extérieur : écoute et diagnostic, conception et devis, puis réalisation avec suivi jusqu'à la livraison.",
+    },
+    {
+      question: "Gérez-vous tous les corps d'état ?",
+      answer:
+        "Oui. En tant qu'entreprise générale du bâtiment, nous coordonnons les métiers nécessaires (maçonnerie, couverture, second œuvre, finitions) pour un chantier cohérent.",
     },
     {
       question: "Proposez-vous un devis détaillé ?",
       answer:
-        "Oui. Après visite et analyse des contraintes techniques, nous établissons un devis clair avec planning, matériaux et périmètre des travaux.",
+        "Oui. Après visite et analyse technique, nous remettons un devis lisible : périmètre, délais, matériaux et planning.",
     },
     {
-      question: "Quelles disciplines maîtrisez-vous ?",
+      question: "Combien de temps dure une rénovation ou des travaux TCE ?",
       answer:
-        "Cuisine sur mesure, salles de bain, espaces de vie et rénovation globale, en coordination des corps d'état pour un rendu cohérent.",
-    },
-    {
-      question: "Combien de temps dure une rénovation ?",
-      answer:
-        "Cela dépend de la surface et de l'ampleur des travaux. Un planning est défini dès la phase de conception pour cadrer les délais.",
+        "Cela dépend de la surface, de l'intérieur/extérieur et de l'ampleur. Un planning est fixé dès la conception pour cadrer les délais.",
     },
   ],
   realisations: [
     {
-      question: "Puis-je visiter des chantiers ou projets réalisés ?",
+      question: "Réalisez-vous des projets intérieur et extérieur ?",
       answer:
-        "Selon les disponibilités et l'accord des clients, nous pouvons partager des références ou organiser une présentation de projets similaires au vôtre.",
+        "Oui. Nos réalisations couvrent rénovations intérieures, travaux d'enveloppe, aménagements extérieurs et projets globaux tous corps d'état.",
     },
     {
       question: "Travaillez-vous sur des appartements et des maisons ?",
       answer:
-        "Oui. Nous rénovons des appartements, maisons individuelles et espaces de vie, en adaptant la méthode au type de bien.",
+        "Oui. Appartements, maisons individuelles et projets résidentiels en Haute-Garonne, adaptés à chaque type de bien.",
     },
     {
       question: "Les photos des réalisations sont-elles représentatives ?",
       answer:
-        "Elles illustrent notre exigence de finition et d'ambiance. Chaque projet est unique : volumes, matériaux et usages sont définis avec vous.",
+        "Elles illustrent notre exigence de finition. Chaque projet est unique : volumes, matériaux et usages sont définis avec vous.",
     },
     {
       question: "Pouvez-vous reprendre un chantier déjà commencé ?",
       answer:
-        "Oui, après un diagnostic technique. Nous évaluons l'existant, les priorités et le budget pour reprendre le projet proprement.",
+        "Oui, après diagnostic technique. Nous évaluons l'existant, les priorités et le budget pour reprendre proprement.",
     },
   ],
   "rendez-vous": [
     {
-      question: "Comment prendre rendez-vous ?",
+      question: "Comment prendre rendez-vous pour un devis bâtiment ?",
       answer:
-        "Utilisez le module de réservation sur cette page pour choisir un créneau. Vous recevez une confirmation avec les détails de l'échange.",
+        "Utilisez le module de réservation sur cette page. Idéal pour un projet de rénovation intérieure, extérieure ou tous corps d'état à Toulouse.",
     },
     {
       question: "Le premier rendez-vous est-il gratuit ?",
       answer:
-        "Le premier échange téléphonique ou en visioconférence est sans engagement. Une visite sur site peut ensuite être planifiée selon le projet.",
+        "Le premier échange téléphonique ou en visioconférence est sans engagement. Une visite sur site peut suivre selon le projet.",
     },
     {
       question: "Que préparer avant le rendez-vous ?",
       answer:
-        "Idéalement : type de bien, surface approximative, photos, contraintes (délais, budget), et vos priorités (cuisine, salle de bain, rénovation globale…).",
+        "Type de bien, intérieur et/ou extérieur, surface, photos, délais, budget, et vos priorités (rénovation, maçonnerie, toiture, etc.).",
     },
     {
       question: "Puis-je modifier ou annuler mon créneau ?",
       answer:
-        "Oui. Vous pouvez gérer votre rendez-vous via le lien de confirmation reçu par e-mail, ou nous contacter directement.",
+        "Oui, via le lien de confirmation reçu par e-mail, ou en nous contactant directement.",
     },
   ],
   contact: [
     {
       question: "Quel est le délai de réponse ?",
       answer:
-        "Nous revenons vers vous sous 48 h ouvrées après réception de votre message, pour un premier échange ou pour fixer une visite.",
+        "Sous 48 h ouvrées après votre message, pour un premier échange ou pour fixer une visite (intérieur, extérieur ou TCE).",
     },
     {
       question: "Où se trouve Alpha Renov France ?",
       answer:
-        "Notre siège est situé au 10 Rue Issac Newton, 31830 Plaisance-du-Touch (Haute-Garonne).",
+        "Siège : 10 Rue Issac Newton, 31830 Plaisance-du-Touch (Haute-Garonne), près de Toulouse.",
     },
     {
-      question: "Comment obtenir un devis ?",
+      question: "Comment obtenir un devis intérieur / extérieur ?",
       answer:
-        "Décrivez votre projet via le formulaire, prenez rendez-vous, ou appelez-nous. Un devis détaillé suit le diagnostic.",
+        "Décrivez votre projet (intérieur, extérieur ou global), prenez rendez-vous ou appelez-nous. Un devis détaillé suit le diagnostic.",
     },
     {
       question: "Intervenez-vous en urgence ?",
       answer:
-        "Nous priorisons les demandes selon leur nature. Contactez-nous pour évaluer la rapidité d'intervention possible.",
+        "Nous priorisons selon la nature de la demande. Contactez-nous pour évaluer la rapidité d'intervention possible.",
     },
   ],
   "mentions-legales": [
     {
       question: "Quelle est la forme juridique d'Alpha Renov France ?",
       answer:
-        "Alpha Renov France est une SASU (société par actions simplifiée unipersonnelle), immatriculée au RCS de Toulouse sous le numéro 939 665 204.",
+        "SASU (société par actions simplifiée unipersonnelle), immatriculée au RCS de Toulouse sous le n° 939 665 204.",
     },
     {
       question: "Qui dirige l'entreprise ?",
       answer:
-        "Le dirigeant est DJAOUTI Liamine. Le capital social s'élève à 1 000,00 €.",
+        "Le dirigeant est DJAOUTI Liamine. Capital social : 1 000,00 €.",
     },
     {
       question: "Quel est le numéro de TVA ?",
       answer:
-        "Le numéro de TVA intracommunautaire est FR54939665204. Le SIRET du siège est 939 665 204 00011.",
+        "TVA intracommunautaire : FR54939665204. SIRET siège : 939 665 204 00011.",
     },
   ],
 } as const satisfies Record<string, FaqItem[]>;

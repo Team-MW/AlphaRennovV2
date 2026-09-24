@@ -51,8 +51,9 @@ export function Footer() {
               />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-ink-muted">
-              Entreprise générale du bâtiment — rénovation et construction,
-              depuis Plaisance-du-Touch.
+              Intérieur &amp; extérieur — tous corps de métiers du bâtiment.
+              Rénovation, maçonnerie, couverture et construction depuis
+              Plaisance-du-Touch.
             </p>
             <p className="mt-5 text-sm leading-relaxed text-ink-muted">
               {company.address.full}

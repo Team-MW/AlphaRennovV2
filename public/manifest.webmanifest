@@ -1,10 +1,10 @@
 {
   "name": "Alpha Renov France",
   "short_name": "Alpha Renov",
-  "description": "Rénovation intérieure d'exception — design architectural, exécution précise.",
+  "description": "Intérieur & extérieur — tous corps de métiers du bâtiment à Toulouse / Plaisance-du-Touch.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#ffffff",
   "theme_color": "#0a1f45",
   "lang": "fr",
   "icons": [

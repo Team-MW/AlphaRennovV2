@@ -34,12 +34,14 @@ export function Hero() {
           </div>
 
           <h1 className="animate-fade-up delay-1 font-display text-[clamp(2.1rem,5.2vw,4rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-navy">
-            L&apos;architecture du quotidien, élevée.
+            Intérieur &amp; extérieur.
+            <br />
+            Tous corps de métiers.
           </h1>
 
-          <p className="animate-fade-up delay-2 mt-5 max-w-md text-base leading-relaxed text-ink-muted md:text-lg">
-            Rénovation intérieure d&apos;exception — précision technique, lignes
-            nettes, matériaux choisis.
+          <p className="animate-fade-up delay-2 mt-5 max-w-lg text-base leading-relaxed text-ink-muted md:text-lg">
+            Entreprise générale du bâtiment à Plaisance-du-Touch — rénovation,
+            maçonnerie, couverture et construction en Haute-Garonne.
           </p>
 
           <div className="animate-fade-up delay-3 mt-9 flex flex-wrap items-center gap-4">

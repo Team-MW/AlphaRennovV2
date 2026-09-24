@@ -2,6 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { Manrope, Outfit } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import {
+  defaultDescription,
+  defaultTitle,
+  seoKeywords,
+  siteConfig,
+} from "@/lib/seo";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -16,10 +23,6 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const siteName = "Alpha Renov France";
-const siteDescription =
-  "Alpha Renov France conçoit et réalise des rénovations intérieures exigeantes : cuisine, salle de bain, espaces de vie. Élégance, précision, savoir-faire.";
-
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
@@ -29,26 +32,21 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://alpharenov.fr",
-  ),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteName} — Rénovation d'exception`,
-    template: `%s — ${siteName}`,
+    default: defaultTitle,
+    template: `%s | ${siteConfig.name} — Bâtiment Toulouse`,
   },
-  description: siteDescription,
-  applicationName: siteName,
-  authors: [{ name: siteName }],
-  creator: siteName,
-  publisher: siteName,
-  keywords: [
-    "rénovation",
-    "Alpha Renov",
-    "rénovation intérieure",
-    "cuisine",
-    "salle de bain",
-    "France",
-  ],
+  description: defaultDescription,
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "construction",
+  keywords: [...seoKeywords],
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -63,28 +61,29 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
-    title: siteName,
+    title: siteConfig.name,
     statusBarStyle: "default",
   },
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName,
-    title: siteName,
-    description: "Rénovation d'exception, design architectural.",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: defaultTitle,
+    description: defaultDescription,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Alpha Renov France",
+        alt: "Alpha Renov France — intérieur & extérieur, tous corps de métiers du bâtiment",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteName,
-    description: "Rénovation d'exception, design architectural.",
+    title: defaultTitle,
+    description: defaultDescription,
     images: ["/og-image.png"],
   },
   robots: {
@@ -93,7 +92,16 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
+  },
+  other: {
+    "geo.region": "FR-31",
+    "geo.placename": "Plaisance-du-Touch",
+    "geo.position": "43.5655;1.2975",
+    ICBM: "43.5655, 1.2975",
   },
 };
 
@@ -104,6 +112,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${outfit.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex w-full max-w-[100vw] flex-col overflow-x-clip bg-white text-ink">
+        <OrganizationJsonLd />
+        <WebSiteJsonLd />
         <div className="flex min-h-full w-full max-w-[100vw] flex-1 flex-col overflow-x-clip bg-white">
           <Header />
           <main className="w-full flex-1 overflow-x-clip">{children}</main>
