@@ -3,6 +3,7 @@ import { Manrope, Outfit } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import {
   defaultDescription,
   defaultTitle,
@@ -119,6 +120,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <main className="w-full flex-1 overflow-x-clip">{children}</main>
           <Footer />
         </div>
+        <WhatsAppButton />
       </body>
     </html>
   );

@@ -1,23 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import { useState, type FormEvent } from "react";
+
+import { useEffect, useState } from "react";
 import { company } from "@/lib/company";
 import { Reveal } from "./Reveal";
 
 export function Contact({ hideIntro = false }: { hideIntro?: boolean }) {
-  const [sent, setSent] = useState(false);
-
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSent(true);
-  }
-
   return (
-    <section className="w-full overflow-hidden bg-white py-16 md:py-24">
+    <section className="w-full overflow-hidden bg-white py-0 md:py-0">
       <div
-        className={`section-pad mx-auto grid max-w-7xl gap-16 ${
-          hideIntro ? "lg:grid-cols-1 lg:max-w-3xl" : "lg:grid-cols-2 lg:gap-24"
+        className={`section-pad mx-auto grid max-w-7xl gap-0 ${
+          hideIntro ? "lg:grid-cols-1 lg:max-w-3xl" : "lg:grid-cols-2 lg:gap-24 py-16 md:py-24"
         }`}
       >
         {!hideIntro && (
@@ -41,65 +34,94 @@ export function Contact({ hideIntro = false }: { hideIntro?: boolean }) {
 
         {hideIntro && (
           <Reveal>
-            <dl className="mb-12 grid gap-6 border-b border-line pb-10 sm:grid-cols-3">
+            <dl className="grid gap-6 border-b border-line py-8 sm:grid-cols-3">
               <ContactDetails />
             </dl>
           </Reveal>
         )}
 
-        <Reveal delay={hideIntro ? 0 : 120}>
-          <form
-            onSubmit={onSubmit}
-            className="border border-line bg-bg-elevated p-6 transition-colors duration-500 focus-within:border-line-strong md:p-10"
-          >
-            {sent ? (
-              <div className="flex min-h-[280px] flex-col justify-center">
-                <p className="font-display text-2xl font-semibold text-navy">
-                  Message envoyé.
-                </p>
-                <p className="mt-3 text-ink-muted">
-                  Merci. Notre équipe vous recontacte très bientôt.
-                </p>
-                <Link
-                  href="/rendez-vous"
-                  className="mt-6 font-display text-[11px] tracking-[0.2em] uppercase text-navy underline-offset-4 hover:underline"
-                >
-                  Ou prenez rendez-vous →
-                </Link>
-              </div>
-            ) : (
-              <div className="space-y-6">
-                <Field label="Nom" name="name" required />
-                <Field label="Email" name="email" type="email" required />
-                <Field label="Téléphone" name="phone" type="tel" />
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="font-display text-[10px] tracking-[0.2em] uppercase text-steel-muted"
-                  >
-                    Projet
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    className="mt-2 w-full resize-none border-b border-line bg-transparent py-3 text-navy outline-none transition-colors placeholder:text-ink-muted/50 focus:border-navy"
-                    placeholder="Type de bien, surface, délais souhaités…"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="btn-primary mt-4 w-full bg-navy py-4 font-display text-[11px] font-semibold tracking-[0.22em] uppercase text-white transition-transform duration-300 hover:bg-navy-mid hover:scale-[1.01] md:w-auto md:px-10"
-                >
-                  Envoyer
-                </button>
-              </div>
-            )}
-          </form>
-        </Reveal>
+        <JotFormEmbed formId="262642312011340" />
       </div>
     </section>
+  );
+}
+
+/* ── JotForm embed with loading state ─────────────────────── */
+function JotFormEmbed({ formId }: { formId: string }) {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    // Inject JotForm's iframe resizer script for auto-height
+    const existing = document.getElementById("jotform-handler");
+    if (!existing) {
+      const script = document.createElement("script");
+      script.id = "jotform-handler";
+      script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
+      script.async = true;
+      script.onload = () => {
+        // @ts-expect-error JotForm global
+        if (window.jotformEmbedHandler) {
+          // @ts-expect-error JotForm global
+          window.jotformEmbedHandler(
+            `iframe[id='JotFormIFrame-${formId}']`,
+            "https://form.jotform.com/"
+          );
+        }
+      };
+      document.body.appendChild(script);
+    }
+  }, [formId]);
+
+  return (
+    <div className="relative">
+      {/* Loading skeleton */}
+      {!loaded && (
+        <div className="flex flex-col items-center gap-5 bg-white py-12">
+          <div className="w-full max-w-sm space-y-4">
+            <div className="h-8 w-3/5 overflow-hidden bg-bg-elevated">
+              <div className="calendly-loader h-full w-1/2 bg-gradient-to-r from-transparent via-line-strong to-transparent" />
+            </div>
+            <div className="h-px w-16 bg-steel" />
+            <div className="space-y-3">
+              <div className="h-4 w-full overflow-hidden bg-bg-elevated">
+                <div className="calendly-loader h-full w-1/2 bg-gradient-to-r from-transparent via-line-strong to-transparent" />
+              </div>
+              <div className="h-4 w-4/5 overflow-hidden bg-bg-elevated">
+                <div className="calendly-loader h-full w-1/2 bg-gradient-to-r from-transparent via-line-strong to-transparent" />
+              </div>
+              <div className="h-4 w-3/5 overflow-hidden bg-bg-elevated">
+                <div className="calendly-loader h-full w-1/2 bg-gradient-to-r from-transparent via-line-strong to-transparent" />
+              </div>
+            </div>
+            <div className="h-10 w-2/5 overflow-hidden bg-bg-elevated">
+              <div className="calendly-loader h-full w-1/2 bg-gradient-to-r from-transparent via-line-strong to-transparent" />
+            </div>
+          </div>
+          <p className="font-display text-[10px] tracking-[0.22em] uppercase text-steel-muted">
+            Chargement du formulaire…
+          </p>
+        </div>
+      )}
+
+      {/* JotForm iframe — full height, no internal scroll */}
+      <iframe
+        id={`JotFormIFrame-${formId}`}
+        title="Formulaire de contact"
+        src={`https://form.jotform.com/${formId}`}
+        onLoad={() => setLoaded(true)}
+        loading="eager"
+        scrolling="no"
+        allow="geolocation; microphone; camera; fullscreen"
+        style={{
+          width: "100%",
+          height: 900,
+          border: "none",
+          background: "transparent",
+          display: loaded ? "block" : "none",
+          overflow: "hidden",
+        }}
+      />
+    </div>
   );
 }
 
@@ -142,32 +164,3 @@ function ContactDetails() {
   );
 }
 
-function Field({
-  label,
-  name,
-  type = "text",
-  required,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <div>
-      <label
-        htmlFor={name}
-        className="font-display text-[10px] tracking-[0.2em] uppercase text-steel-muted"
-      >
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        className="mt-2 w-full border-b border-line bg-transparent py-3 text-navy outline-none transition-colors placeholder:text-ink-muted/50 focus:border-navy"
-      />
-    </div>
-  );
-}

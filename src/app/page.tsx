@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Faq, FaqJsonLd } from "@/components/Faq";
+import { GoogleReviews } from "@/components/GoogleReviews";
 import { Hero } from "@/components/Hero";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import {
@@ -38,6 +39,7 @@ export default function HomePage() {
       <HomeMethod />
       <HomeProjects />
       <HomePromise />
+      <GoogleReviews />
       <HomeLocal />
       <HomeCta />
       <Faq items={faqs} />

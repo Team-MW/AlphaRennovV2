@@ -7,9 +7,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/approche",
     "/realisations",
+    "/nous-rejoindre",
     "/rendez-vous",
     "/contact",
     "/mentions-legales",
+    "/politique-de-confidentialite",
   ];
 
   const now = new Date();
