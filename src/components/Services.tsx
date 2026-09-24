@@ -23,25 +23,24 @@ const services = [
   },
 ];
 
-export function Services() {
+export function Services({ hideIntro = false }: { hideIntro?: boolean }) {
   return (
-    <section
-      id="savoir-faire"
-      className="relative w-full overflow-hidden border-t border-line bg-white py-24 md:py-32"
-    >
+    <section className="relative w-full overflow-hidden bg-white py-16 md:py-24">
       <div className="section-pad mx-auto max-w-7xl">
-        <Reveal className="mb-16 max-w-xl md:mb-20">
-          <p className="font-display text-[11px] font-semibold tracking-[0.28em] uppercase text-steel">
-            Savoir-faire
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.02em] text-navy">
-            Quatre disciplines, une même exigence.
-          </h2>
-          <p className="mt-4 text-ink-muted leading-relaxed">
-            Chaque intervention suit la même ligne : structure nette, matériaux
-            justes, rendu architectural.
-          </p>
-        </Reveal>
+        {!hideIntro && (
+          <Reveal className="mb-16 max-w-xl md:mb-20">
+            <p className="font-display text-[11px] font-semibold tracking-[0.28em] uppercase text-steel">
+              Savoir-faire
+            </p>
+            <h2 className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.02em] text-navy">
+              Quatre disciplines, une même exigence.
+            </h2>
+            <p className="mt-4 text-ink-muted leading-relaxed">
+              Chaque intervention suit la même ligne : structure nette, matériaux
+              justes, rendu architectural.
+            </p>
+          </Reveal>
+        )}
 
         <ul className="grid gap-0 border-t border-line md:grid-cols-2">
           {services.map((service, i) => (

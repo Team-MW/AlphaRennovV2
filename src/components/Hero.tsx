@@ -1,11 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="relative flex min-h-[100svh] w-full max-w-[100vw] items-end overflow-hidden bg-white"
-    >
+    <section className="relative flex min-h-[100svh] w-full max-w-[100vw] items-end overflow-hidden bg-white">
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2400&q=80"
@@ -45,34 +43,34 @@ export function Hero() {
           </p>
 
           <div className="animate-fade-up delay-3 mt-9 flex flex-wrap items-center gap-4">
-            <a
-              href="#contact"
+            <Link
+              href="/rendez-vous"
               className="btn-primary inline-flex items-center justify-center bg-navy px-7 py-3.5 font-display text-[11px] font-semibold tracking-[0.22em] uppercase text-white transition-transform duration-300 hover:bg-navy-mid hover:scale-[1.02]"
             >
-              Parler de votre projet
-            </a>
-            <a
-              href="#realisations"
+              Prendre rendez-vous
+            </Link>
+            <Link
+              href="/realisations"
               className="inline-flex items-center justify-center border border-line-strong px-7 py-3.5 font-display text-[11px] font-semibold tracking-[0.22em] uppercase text-navy transition-all duration-300 hover:border-navy hover:bg-navy/[0.04]"
             >
               Voir les réalisations
-            </a>
+            </Link>
           </div>
 
           <div className="animate-draw-line delay-4 mt-14 h-px w-24 bg-steel" />
         </div>
       </div>
 
-      <a
-        href="#savoir-faire"
+      <Link
+        href="/approche"
         className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
-        aria-label="Descendre"
+        aria-label="Découvrir notre approche"
       >
         <span className="font-display text-[9px] tracking-[0.3em] uppercase text-steel-muted">
           Explorer
         </span>
         <span className="block h-8 w-px origin-top animate-pulse bg-gradient-to-b from-navy to-transparent" />
-      </a>
+      </Link>
     </section>
   );
 }

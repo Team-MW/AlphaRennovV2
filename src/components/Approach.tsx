@@ -1,7 +1,7 @@
 import { Reveal } from "./Reveal";
 import { RoofMark } from "./RoofMark";
 
-export function Approach() {
+export function Approach({ hideIntro = false }: { hideIntro?: boolean }) {
   const steps = [
     {
       title: "Écoute & diagnostic",
@@ -18,10 +18,7 @@ export function Approach() {
   ];
 
   return (
-    <section
-      id="approche"
-      className="relative w-full overflow-hidden border-t border-line bg-bg-elevated py-24 md:py-32"
-    >
+    <section className="relative w-full overflow-hidden bg-white py-16 md:py-24">
       <div
         className="pointer-events-none absolute right-0 top-1/2 hidden h-64 w-64 -translate-y-1/2 opacity-[0.12] lg:block"
         aria-hidden
@@ -29,23 +26,29 @@ export function Approach() {
         <RoofMark className="h-full w-full" />
       </div>
 
-      <div className="section-pad relative mx-auto grid max-w-7xl gap-16 lg:grid-cols-[1fr_1.15fr] lg:gap-24">
-        <Reveal>
-          <p className="font-display text-[11px] font-semibold tracking-[0.28em] uppercase text-steel">
-            Approche
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.02em] text-navy">
-            Une méthode calme.
-            <br />
-            Un résultat précis.
-          </h2>
-          <p className="mt-5 max-w-md text-ink-muted leading-relaxed">
-            Nous travaillons comme un atelier d&apos;architecture appliqué à la
-            rénovation : peu de bruit, beaucoup de rigueur.
-          </p>
-        </Reveal>
+      <div
+        className={`section-pad relative mx-auto grid max-w-7xl gap-16 ${
+          hideIntro ? "" : "lg:grid-cols-[1fr_1.15fr] lg:gap-24"
+        }`}
+      >
+        {!hideIntro && (
+          <Reveal>
+            <p className="font-display text-[11px] font-semibold tracking-[0.28em] uppercase text-steel">
+              Approche
+            </p>
+            <h2 className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.02em] text-navy">
+              Une méthode calme.
+              <br />
+              Un résultat précis.
+            </h2>
+            <p className="mt-5 max-w-md text-ink-muted leading-relaxed">
+              Nous travaillons comme un atelier d&apos;architecture appliqué à la
+              rénovation : peu de bruit, beaucoup de rigueur.
+            </p>
+          </Reveal>
+        )}
 
-        <ol className="space-y-0">
+        <ol className={`space-y-0 ${hideIntro ? "max-w-3xl" : ""}`}>
           {steps.map((step, i) => (
             <Reveal
               key={step.title}

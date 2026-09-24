@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
+import { company } from "@/lib/company";
 import { Reveal } from "./Reveal";
 
-export function Contact() {
+export function Contact({ hideIntro = false }: { hideIntro?: boolean }) {
   const [sent, setSent] = useState(false);
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -12,72 +14,58 @@ export function Contact() {
   }
 
   return (
-    <section
-      id="contact"
-      className="w-full overflow-hidden border-t border-line bg-bg-elevated py-24 md:py-32"
-    >
-      <div className="section-pad mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:gap-24">
-        <Reveal>
-          <p className="font-display text-[11px] font-semibold tracking-[0.28em] uppercase text-steel">
-            Contact
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.02em] text-navy">
-            Parlons de votre lieu.
-          </h2>
-          <p className="mt-5 max-w-md text-ink-muted leading-relaxed">
-            Décrivez-nous votre projet. Nous revenons vers vous sous 48 h pour
-            un premier échange et, si pertinent, une visite.
-          </p>
+    <section className="w-full overflow-hidden bg-white py-16 md:py-24">
+      <div
+        className={`section-pad mx-auto grid max-w-7xl gap-16 ${
+          hideIntro ? "lg:grid-cols-1 lg:max-w-3xl" : "lg:grid-cols-2 lg:gap-24"
+        }`}
+      >
+        {!hideIntro && (
+          <Reveal>
+            <p className="font-display text-[11px] font-semibold tracking-[0.28em] uppercase text-steel">
+              Contact
+            </p>
+            <h2 className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.02em] text-navy">
+              Parlons de votre lieu.
+            </h2>
+            <p className="mt-5 max-w-md text-ink-muted leading-relaxed">
+              Décrivez-nous votre projet. Nous revenons vers vous sous 48 h pour
+              un premier échange et, si pertinent, une visite.
+            </p>
 
-          <dl className="mt-12 space-y-6 border-t border-line pt-10">
-            <div>
-              <dt className="font-display text-[10px] tracking-[0.22em] uppercase text-steel-muted">
-                Email
-              </dt>
-              <dd className="mt-2">
-                <a
-                  href="mailto:contact@alpharenov.fr"
-                  className="text-navy transition-colors hover:text-navy-mid"
-                >
-                  contact@alpharenov.fr
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="font-display text-[10px] tracking-[0.22em] uppercase text-steel-muted">
-                Téléphone
-              </dt>
-              <dd className="mt-2">
-                <a
-                  href="tel:+33100000000"
-                  className="text-navy transition-colors hover:text-navy-mid"
-                >
-                  +33 1 00 00 00 00
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="font-display text-[10px] tracking-[0.22em] uppercase text-steel-muted">
-                Zone
-              </dt>
-              <dd className="mt-2 text-ink-muted">Île-de-France & France</dd>
-            </div>
-          </dl>
-        </Reveal>
+            <dl className="mt-12 space-y-6 border-t border-line pt-10">
+              <ContactDetails />
+            </dl>
+          </Reveal>
+        )}
 
-        <Reveal delay={120}>
+        {hideIntro && (
+          <Reveal>
+            <dl className="mb-12 grid gap-6 border-b border-line pb-10 sm:grid-cols-3">
+              <ContactDetails />
+            </dl>
+          </Reveal>
+        )}
+
+        <Reveal delay={hideIntro ? 0 : 120}>
           <form
             onSubmit={onSubmit}
-            className="border border-line bg-white p-6 shadow-[0_1px_0_rgba(10,31,69,0.04)] transition-colors duration-500 focus-within:border-line-strong md:p-10"
+            className="border border-line bg-bg-elevated p-6 transition-colors duration-500 focus-within:border-line-strong md:p-10"
           >
             {sent ? (
-              <div className="flex min-h-[320px] flex-col justify-center">
+              <div className="flex min-h-[280px] flex-col justify-center">
                 <p className="font-display text-2xl font-semibold text-navy">
                   Message envoyé.
                 </p>
                 <p className="mt-3 text-ink-muted">
                   Merci. Notre équipe vous recontacte très bientôt.
                 </p>
+                <Link
+                  href="/rendez-vous"
+                  className="mt-6 font-display text-[11px] tracking-[0.2em] uppercase text-navy underline-offset-4 hover:underline"
+                >
+                  Ou prenez rendez-vous →
+                </Link>
               </div>
             ) : (
               <div className="space-y-6">
@@ -112,6 +100,45 @@ export function Contact() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function ContactDetails() {
+  return (
+    <>
+      <div>
+        <dt className="font-display text-[10px] tracking-[0.22em] uppercase text-steel-muted">
+          Email
+        </dt>
+        <dd className="mt-2">
+          <a
+            href={`mailto:${company.email}`}
+            className="text-navy transition-colors hover:text-navy-mid"
+          >
+            {company.email}
+          </a>
+        </dd>
+      </div>
+      <div>
+        <dt className="font-display text-[10px] tracking-[0.22em] uppercase text-steel-muted">
+          Téléphone
+        </dt>
+        <dd className="mt-2">
+          <a
+            href={`tel:${company.phone.replace(/\s/g, "")}`}
+            className="text-navy transition-colors hover:text-navy-mid"
+          >
+            {company.phone}
+          </a>
+        </dd>
+      </div>
+      <div>
+        <dt className="font-display text-[10px] tracking-[0.22em] uppercase text-steel-muted">
+          Adresse
+        </dt>
+        <dd className="mt-2 text-ink-muted">{company.address.full}</dd>
+      </div>
+    </>
   );
 }
 

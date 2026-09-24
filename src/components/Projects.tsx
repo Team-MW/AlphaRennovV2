@@ -25,27 +25,26 @@ const projects = [
   },
 ];
 
-export function Projects() {
+export function Projects({ hideIntro = false }: { hideIntro?: boolean }) {
   return (
-    <section
-      id="realisations"
-      className="w-full overflow-hidden border-t border-line bg-white py-24 md:py-32"
-    >
+    <section className="w-full overflow-hidden bg-white py-16 md:py-24">
       <div className="section-pad mx-auto max-w-7xl">
-        <Reveal className="mb-14 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
-          <div className="max-w-xl">
-            <p className="font-display text-[11px] font-semibold tracking-[0.28em] uppercase text-steel">
-              Réalisations
+        {!hideIntro && (
+          <Reveal className="mb-14 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+            <div className="max-w-xl">
+              <p className="font-display text-[11px] font-semibold tracking-[0.28em] uppercase text-steel">
+                Réalisations
+              </p>
+              <h2 className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.02em] text-navy">
+                Des volumes qui respirent.
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm leading-relaxed text-ink-muted md:text-right">
+              Sélection de projets récents — intérieurs rénovés avec la même
+              discipline : lignes, lumière, matière.
             </p>
-            <h2 className="mt-4 font-display text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold tracking-[-0.02em] text-navy">
-              Des volumes qui respirent.
-            </h2>
-          </div>
-          <p className="max-w-sm text-sm leading-relaxed text-ink-muted md:text-right">
-            Sélection de projets récents — intérieurs rénovés avec la même
-            discipline : lignes, lumière, matière.
-          </p>
-        </Reveal>
+          </Reveal>
+        )}
 
         <div className="grid gap-3 md:grid-cols-2 md:grid-rows-2 md:gap-4">
           {projects.map((project, i) => (
