@@ -9,7 +9,7 @@ import { faqByPage } from "@/lib/faq";
 export const metadata: Metadata = {
   title: "Approche & métiers du bâtiment",
   description:
-    "Intérieur & extérieur, tous corps de métiers : méthode Alpha Renov France — diagnostic, devis et chantier à Toulouse / Plaisance-du-Touch.",
+    "Découvrez l'approche Alpha Renov France : tous corps d'état, suivi de chantier dédié & finitions haut de gamme à Toulouse et Haute-Garonne. Devis rapide.",
   alternates: { canonical: "/approche" },
   keywords: [
     "entreprise générale bâtiment Toulouse",

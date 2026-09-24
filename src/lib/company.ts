@@ -34,6 +34,6 @@ export const company = {
     "Ouvriers du bâtiment (entreprises occupant jusqu'à 10 salariés) — IDCC 1596",
     "Employés, techniciens et agents de maîtrise du bâtiment — IDCC 2609",
   ],
-  email: "contact@alpharenov.fr",
-  phone: "+33 1 00 00 00 00",
+  email: "contact@alpha-renov-france.com",
+  phone: "+33 6 00 00 00 00",
 } as const;

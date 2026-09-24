@@ -6,7 +6,7 @@ import { company } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
-  description: `Politique de confidentialité de ${company.name} — traitement des données personnelles, cookies et droits RGPD.`,
+  description: `Politique de confidentialité et protection des données (RGPD) d'${company.name}. Transparence sur le traitement de vos informations personnelles.`,
   robots: { index: true, follow: true },
   alternates: { canonical: "/politique-de-confidentialite" },
 };

@@ -9,7 +9,7 @@ import { faqByPage } from "@/lib/faq";
 export const metadata: Metadata = {
   title: "Devis & rendez-vous bâtiment Toulouse",
   description:
-    "Prenez rendez-vous pour un devis de rénovation intérieure, extérieure ou tous corps d'état — Alpha Renov France, Plaisance-du-Touch.",
+    "Prenez rendez-vous en ligne avec Alpha Renov France pour votre projet de rénovation ou construction à Toulouse (31). Estimation & devis gratuit sous 48h.",
   alternates: { canonical: "/rendez-vous" },
 };
 

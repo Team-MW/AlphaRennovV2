@@ -112,6 +112,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="fr"
       className={`${outfit.variable} ${manrope.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://form.jotform.com" />
+        <link rel="dns-prefetch" href="https://form.jotform.com" />
+        <link rel="preconnect" href="https://cdn.jotfor.ms" />
+        <link rel="dns-prefetch" href="https://cdn.jotfor.ms" />
+      </head>
       <body className="min-h-full flex w-full max-w-[100vw] flex-col overflow-x-clip bg-white text-ink">
         <OrganizationJsonLd />
         <WebSiteJsonLd />

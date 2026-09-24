@@ -7,7 +7,7 @@ import { faqByPage } from "@/lib/faq";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
-  description: `Mentions légales de ${company.name} — SIREN ${company.siren}, siège à ${company.address.city}.`,
+  description: `Mentions légales et informations juridiques d'${company.name} à Plaisance-du-Touch (31). SIREN, coordonnées et hébergement web.`,
   robots: { index: true, follow: true },
 };
 

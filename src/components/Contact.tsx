@@ -46,78 +46,50 @@ export function Contact({ hideIntro = false }: { hideIntro?: boolean }) {
   );
 }
 
-/* ── JotForm embed with loading state ─────────────────────── */
+/* ── JotForm embed — zero delay, progressive render ─────────────────────── */
 function JotFormEmbed({ formId }: { formId: string }) {
-  const [loaded, setLoaded] = useState(false);
-
   useEffect(() => {
     // Inject JotForm's iframe resizer script for auto-height
+    const initHandler = () => {
+      // @ts-expect-error JotForm global
+      if (window.jotformEmbedHandler) {
+        // @ts-expect-error JotForm global
+        window.jotformEmbedHandler(
+          `iframe[id='JotFormIFrame-${formId}']`,
+          "https://form.jotform.com/"
+        );
+      }
+    };
+
     const existing = document.getElementById("jotform-handler");
     if (!existing) {
       const script = document.createElement("script");
       script.id = "jotform-handler";
       script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
       script.async = true;
-      script.onload = () => {
-        // @ts-expect-error JotForm global
-        if (window.jotformEmbedHandler) {
-          // @ts-expect-error JotForm global
-          window.jotformEmbedHandler(
-            `iframe[id='JotFormIFrame-${formId}']`,
-            "https://form.jotform.com/"
-          );
-        }
-      };
+      script.onload = initHandler;
       document.body.appendChild(script);
+    } else {
+      initHandler();
     }
   }, [formId]);
 
   return (
-    <div className="relative">
-      {/* Loading skeleton */}
-      {!loaded && (
-        <div className="flex flex-col items-center gap-5 bg-white py-12">
-          <div className="w-full max-w-sm space-y-4">
-            <div className="h-8 w-3/5 overflow-hidden bg-bg-elevated">
-              <div className="calendly-loader h-full w-1/2 bg-gradient-to-r from-transparent via-line-strong to-transparent" />
-            </div>
-            <div className="h-px w-16 bg-steel" />
-            <div className="space-y-3">
-              <div className="h-4 w-full overflow-hidden bg-bg-elevated">
-                <div className="calendly-loader h-full w-1/2 bg-gradient-to-r from-transparent via-line-strong to-transparent" />
-              </div>
-              <div className="h-4 w-4/5 overflow-hidden bg-bg-elevated">
-                <div className="calendly-loader h-full w-1/2 bg-gradient-to-r from-transparent via-line-strong to-transparent" />
-              </div>
-              <div className="h-4 w-3/5 overflow-hidden bg-bg-elevated">
-                <div className="calendly-loader h-full w-1/2 bg-gradient-to-r from-transparent via-line-strong to-transparent" />
-              </div>
-            </div>
-            <div className="h-10 w-2/5 overflow-hidden bg-bg-elevated">
-              <div className="calendly-loader h-full w-1/2 bg-gradient-to-r from-transparent via-line-strong to-transparent" />
-            </div>
-          </div>
-          <p className="font-display text-[10px] tracking-[0.22em] uppercase text-steel-muted">
-            Chargement du formulaire…
-          </p>
-        </div>
-      )}
-
-      {/* JotForm iframe — full height, no internal scroll */}
+    <div className="relative min-h-[750px] w-full bg-white">
+      {/* JotForm iframe — immediate display for progressive rendering */}
       <iframe
         id={`JotFormIFrame-${formId}`}
         title="Formulaire de contact"
         src={`https://form.jotform.com/${formId}`}
-        onLoad={() => setLoaded(true)}
         loading="eager"
         scrolling="no"
         allow="geolocation; microphone; camera; fullscreen"
         style={{
           width: "100%",
-          height: 900,
+          minHeight: "750px",
           border: "none",
           background: "transparent",
-          display: loaded ? "block" : "none",
+          display: "block",
           overflow: "hidden",
         }}
       />

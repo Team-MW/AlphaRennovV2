@@ -41,10 +41,10 @@ export function Header() {
       <div className="section-pad mx-auto flex h-16 max-w-7xl items-center justify-between md:h-20">
         <Link href="/" className="shrink-0" aria-label="Alpha Renov France">
           <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="Alpha Renov France"
-            width={200}
-            height={142}
+            width={220}
+            height={150}
             className="h-12 w-auto object-contain sm:h-14 md:h-16"
             priority
           />

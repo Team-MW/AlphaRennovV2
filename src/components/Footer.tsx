@@ -43,10 +43,10 @@ export function Footer() {
           <div className="md:col-span-5">
             <Link href="/" aria-label="Alpha Renov France" className="inline-block">
               <Image
-                src="/logo.png"
+                src="/logo.svg"
                 alt="Alpha Renov France"
-                width={150}
-                height={106}
+                width={180}
+                height={120}
                 className="h-14 w-auto object-contain"
               />
             </Link>

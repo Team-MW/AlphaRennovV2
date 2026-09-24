@@ -8,7 +8,7 @@ import { faqByPage } from "@/lib/faq";
 export const metadata: Metadata = {
   title: "Réalisations intérieur & extérieur",
   description:
-    "Projets de rénovation intérieure et extérieure, travaux tous corps d'état en Haute-Garonne — Alpha Renov France.",
+    "Galerie de réalisations en rénovation intérieure, maçonnerie & aménagement extérieur à Toulouse (31). Découvrez nos chantiers Alpha Renov France en photos.",
   alternates: { canonical: "/realisations" },
 };
 

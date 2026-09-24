@@ -24,7 +24,7 @@ export function Hero() {
         <div className="max-w-2xl">
           <div className="animate-fade-up mb-8 md:mb-10">
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="Alpha Renov France"
               width={280}
               height={198}
@@ -52,10 +52,10 @@ export function Hero() {
               Prendre rendez-vous
             </Link>
             <Link
-              href="/realisations"
+              href="/rendez-vous?category=artisan"
               className="inline-flex items-center justify-center border border-line-strong px-7 py-3.5 font-display text-[11px] font-semibold tracking-[0.22em] uppercase text-navy transition-all duration-300 hover:border-navy hover:bg-navy/[0.04]"
             >
-              Voir les réalisations
+              Devenir Artisan Partenaire
             </Link>
           </div>
 

@@ -28,7 +28,7 @@ export const seoKeywords = [
 ] as const;
 
 export const defaultDescription =
-  "Entreprise générale du bâtiment à Plaisance-du-Touch (31). Rénovation intérieure & extérieure, maçonnerie, couverture, construction — tous corps de métiers. Devis gratuit sous 48 h à Toulouse et Haute-Garonne.";
+  "Entreprise générale du bâtiment à Plaisance-du-Touch (31). Rénovation intérieure, extérieure, maçonnerie & couverture à Toulouse. Devis gratuit en 48h !";
 
 export const defaultTitle =
   "Alpha Renov France | Intérieur & Extérieur — Tous corps de métiers du bâtiment à Toulouse";

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -8,7 +9,7 @@ import { company } from "@/lib/company";
 export const metadata: Metadata = {
   title: "Nous rejoindre — Partenaires professionnels",
   description:
-    "Syndics de copropriété, assureurs, gestionnaires de sinistres, agences immobilières : devenez partenaire Alpha Renov France. Entreprise générale du bâtiment, tous corps de métiers à Toulouse (31).",
+    "Syndics, assureurs, gestionnaires de sinistres & agences : devenez partenaire Alpha Renov France, entreprise générale du bâtiment à Toulouse et Haute-Garonne.",
   alternates: { canonical: "/nous-rejoindre" },
   openGraph: {
     title: "Nous rejoindre — Partenaires professionnels | Alpha Renov France",
@@ -286,6 +287,54 @@ export default function NousRejoindrePage() {
         </div>
       </section>
 
+      {/* ── Artisan & Subcontractor booking section ──────────────── */}
+      <section className="border-t border-line bg-white py-24 md:py-32">
+        <div className="section-pad mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            <Reveal className="lg:col-span-5">
+              <p className="font-display text-[11px] font-semibold tracking-[0.28em] uppercase text-steel">
+                Artisans & Sous-traitants
+              </p>
+              <h2 className="mt-4 font-display text-[clamp(1.8rem,3.5vw,2.75rem)] font-semibold tracking-[-0.02em] text-navy">
+                Rejoignez le réseau d&apos;artisanat Alpha Renov France.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-ink-muted">
+                Vous êtes artisan qualifié ou entreprise partenaire en Haute-Garonne ?
+                Prenez rendez-vous directement dans nos créneaux réservés aux artisans.
+              </p>
+
+              <div className="mt-8 space-y-4 border-t border-line pt-8">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-navy text-white text-xs font-bold">✓</div>
+                  <p className="text-sm text-ink-muted">Chantiers qualifiés & rémunération garantie</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-navy text-white text-xs font-bold">✓</div>
+                  <p className="text-sm text-ink-muted">Coordination et suivi de projet simplifiés</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-navy text-white text-xs font-bold">✓</div>
+                  <p className="text-sm text-ink-muted">Partenariat pérenne sur Toulouse & 31</p>
+                </div>
+              </div>
+
+              <div className="mt-10">
+                <Link
+                  href="/rendez-vous?category=artisan"
+                  className="btn-primary inline-flex items-center justify-center bg-navy px-8 py-4 font-display text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-colors hover:bg-navy-mid"
+                >
+                  Prendre RDV Artisan →
+                </Link>
+              </div>
+            </Reveal>
+
+            <Reveal className="lg:col-span-7">
+              <CalendlyEmbed defaultCategory="artisan" />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ───────────────────────────────────────────── */}
       <section className="border-t border-line bg-bg-elevated py-20 md:py-24">
         <div className="section-pad mx-auto max-w-7xl">
@@ -309,10 +358,10 @@ export default function NousRejoindrePage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/contact"
+                href="/rendez-vous?category=general"
                 className="btn-primary inline-flex items-center justify-center bg-navy px-7 py-3.5 font-display text-[11px] font-semibold tracking-[0.2em] uppercase text-white transition-colors hover:bg-navy-mid"
               >
-                Nous contacter
+                Prendre rendez-vous
               </Link>
               <a
                 href={`mailto:${company.email}`}

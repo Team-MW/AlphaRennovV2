@@ -8,7 +8,7 @@ import { faqByPage } from "@/lib/faq";
 export const metadata: Metadata = {
   title: "Contact entreprise bâtiment Plaisance-du-Touch",
   description:
-    "Contactez Alpha Renov France — entreprise générale du bâtiment, intérieur & extérieur, tous corps de métiers à Plaisance-du-Touch (31).",
+    "Contactez Alpha Renov France à Plaisance-du-Touch (31). Entreprise générale du bâtiment tous corps d'état à Toulouse. Devis gratuit & conseils sur-mesure.",
   alternates: { canonical: "/contact" },
 };
 
